@@ -1,0 +1,6 @@
+[
+ {"id": 1, "name": "Ноутбук", "price": 25000, "in_stock": true},
+ {"id": 2, "name": "Мышь", "price": 800, "in_stock": true},
+ {"id": 3, "name": "Монитор", "price": 15000, "in_stock": false},
+ {"id": 4, "name": "Клавиатура", "price": 2500, "in_stock": true}
+]

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для моєї Ванюшки😘 ✨</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Анімація сердечок на тлі */
+        .heart-bg {
+            position: absolute;
+            color: rgba(255, 75, 110, 0.3);
+            font-size: 24px;
+            animation: float 6s linear infinite;
+            bottom: -50px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Конверт / Картка */
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 450px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(255, 75, 110, 0.2);
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            color: #ff4b6e;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: #ff4b6e;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover { background: #ff2a55; }
+
+        /* Текст привітання (схований спочатку) */
+        #secret-content {
+            display: none;
+        }
+
+        .message-text {
+            font-size: 20px;
+            color: #4a4a4a;
+            line-height: 1.6;
+            min-height: 150px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Задній план із сердечками -->
+    <div id="hearts-container"></div>
+
+    <!-- Головна картка -->
+    <div class="card" id="main-card" onclick="openLetter()">
+        <div id="envelope-view">
+            <div class="icon">✉️</div>
+            <h1>Для моєї коханої Ванюшки</h1>
+            <p style="color: #666;">Тут ховається щось особливе... Натисни, щоб відкрити! ❤️</p>
+            <button class="btn">Відкрити лист</button>
+        </div>
+
+        <div id="secret-content">
+            <div class="icon">💖</div>
+            <h1>З Днем Народження!🥰</h1>
+            <!-- Тут ефект друку тексту -->
+            <div class="message-text" id="typewriter"></div>
+        </div>
+    </div>
+
+    <script>
+        // Текст привітання — МОЖЕШ ЗМІНИТИ НА СВІЙ
+        const textToType = "Дорога моя маленька! З днем народження тебе! 🎂\n\nТи — найпрекрасніше, що є в моєму житті. Твоя посмішка робить кожен мій день світлішим, а твоє тепло зігріває навіть у найхолодніші миті. Я неймовірно щасливий бути поруч із тобою.\n\nБажаю тобі залишатися такою ж чарівною, веселою та натхненною. Нехай усі твої мрії збуваються, а я завжди буду поруч, щоб підтримувати тебе і робити щасливою. Кохаю тебе безмежно! ❤️";
+
+        function openLetter() {
+            // Ховаємо конверт, показуємо текст
+            document.getElementById('envelope-view').style.display = 'none';
+            document.getElementById('secret-content').style.display = 'block';
+            
+            // Прибираємо клікабельність картки
+            document.getElementById('main-card').onclick = null;
+            document.getElementById('main-card').style.cursor = 'default';
+
+            // Запуск ефекту друку
+            let i = 0;
+            const speed = 50; // Швидкість друку (менше = швидше)
+            const textContainer = document.getElementById('typewriter');
+
+            function typeWriter() {
+                if (i < textToType.length) {
+                    if (textToType.charAt(i) === '\n') {
+                        textContainer.innerHTML += '<br>';
+                    } else {
+                        textContainer.innerHTML += textToType.charAt(i);
+                    }
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
+        }
+
+        // Генерація літаючих сердечок
+        function createHeart() {
+            const container = document.getElementById('hearts-container');
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's'; // від 4 до 7 секунд
+            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>

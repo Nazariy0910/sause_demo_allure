@@ -1,0 +1,30 @@
+.layout{
+    display: grid;
+    height: 100vh;
+    gap: 10px;
+    grid-template-areas: 
+    "head head head"
+    "side main main"
+    "foot foot foot"
+    ;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: 60px 1fr 60px;
+}
+
+.header{
+    grid-area: head;
+    background: #ffcccc;
+}
+.sidebar{
+    grid-area: side;
+    background: #ccffcc;
+}
+.content{
+    grid-area: main;
+    background: #ccccff;
+}
+.footer{
+    grid-area: foot;
+    background: #ffffcc;
+}
+

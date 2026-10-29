@@ -1,0 +1,6 @@
+{
+    "suite": "Smoke Test",
+    "passed": 4,
+    "failed": 1,
+    "success": false
+}

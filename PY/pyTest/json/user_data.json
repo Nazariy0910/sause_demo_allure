@@ -1,0 +1,7 @@
+{
+    "user_id": 105,
+    "username": "alex_tester",
+    "status": "active",
+    "balance": 2500.50,
+    "roles": ["customer", "reviewer"]
+}

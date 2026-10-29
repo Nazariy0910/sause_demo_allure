@@ -1,0 +1,6 @@
+{
+ "name": "Laptop",
+ "price": 25000,
+ "category": "electronics",
+ "in_stock": true
+}

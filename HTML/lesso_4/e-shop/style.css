@@ -1,0 +1,90 @@
+* { box-sizing: border-box;
+   margin: 0;
+  padding: 0; }
+body { font-family: Arial, sans-serif; 
+  background: #f5f5f5; }
+   
+/* ШАПКА — Flexbox */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #1a1a2e;
+  color: white;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e94560;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 15px;
+}
+
+.menu a:hover {
+  color: #e94560;
+}
+
+.catalog{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* КАРТОЧКА — Flexbox внутри Grid-ячейки */
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;  /* содержимое в столбик */
+}
+
+.card img {
+  width: 100%;
+}
+
+.card h3 {
+  padding: 12px 16px 4px;
+  font-size: 16px;
+}
+
+.card p {
+  padding: 0 16px;
+  font-size: 13px;
+  color: #666;
+  flex: 1;  /* абзац занимает всё свободное место — прижимает цену и кнопку вниз */
+}
+
+.price {
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e94560;
+}
+
+.card button {
+  margin: 0 16px 16px;
+  padding: 10px;
+  background: #1a1a2e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.card button:hover {
+  background: #e94560;
+}
