@@ -2,5 +2,4 @@
 allure-results
 allure-report/
 .idea
-__pycache__/
-pages/
+pages/__pycache__/

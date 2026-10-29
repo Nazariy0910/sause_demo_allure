@@ -25,10 +25,10 @@ def test_sort_name_z_to_a(logged_in):
 # В pytest тест станет XFAIL, в Allure — серым Skipped с номером бага.
 # Когда баг починят, pytest покажет XPASS — значит, xfail пора убирать.
 #
-# @pytest.mark.parametrize("username", [
-#     "standard_user",
-#     pytest.param("problem_user", marks=pytest.mark.xfail(reason="BUG-1: у problem_user не работает сортировка")),
-# ])
+@pytest.mark.parametrize("username", [
+    "standard_user",
+    pytest.param("problem_user", marks=pytest.mark.xfail(reason="BUG-1: у problem_user не работает сортировка")),
+])
 
 # ШАГ 1 (сейчас). Мы ещё НЕ знаем о баге: тест для problem_user падает КРАСНЫМ (Failed).
 # Смотрим скриншот в Allure и оформляем баг-репорт.
